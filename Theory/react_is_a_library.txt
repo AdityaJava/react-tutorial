@@ -22,3 +22,5 @@ Examples: React, Lodash, jQuery.
 4. Key Difference in One Line
 - Framework = It calls you (complete structure, inversion of control).
 - Library = You call it (flexible, pick and choose).
+
+5. Also as this is a library we can also name jsx files as js still it will run because it is a library but if it was a framework it could've crashed
