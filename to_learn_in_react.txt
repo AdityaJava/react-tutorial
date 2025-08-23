@@ -10,5 +10,11 @@ Additional addon to React
    -> Redux, Redux toolkit, Zustand, context API
 3. Class based component 
    -> Legacy code
-4. BAAS applications
+4. BAAS(Backend as a service) applications. Example AppWrite, firebase, superbase
   -> Social media clone, e-commerce application
+
+
+After React
+1. React is not a complete solution in most case 
+  -> No SEO, browser render of JS, no routing
+  -> Framework: NextJS, Gatsby, Remix

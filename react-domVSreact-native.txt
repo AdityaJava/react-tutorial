@@ -1,0 +1,3 @@
+react is a core library
+1. react-dom is a library used for web applications
+2. react-native is a library used for mobile applications
