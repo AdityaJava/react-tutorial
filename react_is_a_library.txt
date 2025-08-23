@@ -1,0 +1,24 @@
+Framework vs Library (with React Example)
+
+1. What is a Framework?
+- A framework provides a complete structure for building applications.
+- It decides how your application should be built – with predefined rules, architecture, and flows.
+- You call the framework’s code, but it also calls your code when needed (Inversion of Control).
+
+Examples: Angular, Spring Boot, Django.
+
+2. What is a Library?
+- A library is a collection of reusable code you can use in your application.
+- You control the flow – you decide when and where to use the library.
+- Libraries are focused on specific tasks, not full application architecture.
+
+Examples: React, Lodash, jQuery.
+
+3. Why is React a Library, not a Framework?
+- React focuses only on building UI (component-based rendering).
+- It doesn’t dictate architecture (routing, state management, API handling – you choose which libraries to use like React Router, Redux, Axios).
+- You call React to render UI – React doesn’t control the flow of your entire application.
+
+4. Key Difference in One Line
+- Framework = It calls you (complete structure, inversion of control).
+- Library = You call it (flexible, pick and choose).
