@@ -1,0 +1,14 @@
+1. Core of react (state or UI manipulation, JSX)
+2. component Reusability
+3. Reusing of component (Props)
+4. How to propagate change (Hooks). Like useState()
+
+Additional addon to React
+1. Router (React don't have router). React is SPA (Single page application) but we need to have /profile,
+   /about so in this case we do some manipulations. We do this with readt-router-dom which is separate library
+2. State management (React don’t have state management)
+   -> Redux, Redux toolkit, Zustand, context API
+3. Class based component 
+   -> Legacy code
+4. BAAS applications
+  -> Social media clone, e-commerce application
