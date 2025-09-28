@@ -13,6 +13,10 @@ function customRender(reactElement, container) {
     }
     container.appendChild(domElement);
 }
+
+// The component of react are converted to like below object
+// This is a simple react element
+// In real react, this object is created by babel transpiler from JSX code
 const reactElement = {
     type: 'a',
     props: {
