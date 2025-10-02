@@ -19,6 +19,10 @@ function App() {
     setCounter(counter+Number(inputValue));
   }
 
+  function sd(){
+    
+  }
+
   const subtractValue = ()=>{
     setCounter(counter-Number(inputValue));
   }

@@ -1,0 +1,54 @@
+📌 React Virtual DOM, Diffing & Fiber Reconciliation
+
+1. Virtual DOM
+- React uses a Virtual DOM (VDOM) which is a lightweight JS object representing the real DOM.
+- When the UI changes, React creates a new Virtual DOM tree.
+- React compares the new Virtual DOM with the previous one (this process is called "diffing").
+- Only the differences (diffs) are updated in the real DOM → improves performance.
+
+2. Diffing Algorithm
+- React uses heuristics to efficiently compare trees.
+- Assumptions:
+  a) Two elements of different types produce different trees.
+  b) Developers should give "key" props to list items for efficient re-render.
+- For example:
+  - If a <div> changes to a <span>, React replaces the entire node.
+  - If only attributes/text change, React updates them instead of recreating.
+- In lists:
+  - With keys → React reuses items.
+  - Without keys → React may re-render unnecessarily.
+
+3. Reconciliation
+- Reconciliation is the process of updating the DOM to match the Virtual DOM.
+- Steps:
+  1) React builds a new Virtual DOM tree when state/props change.
+  2) React diffs it with the old Virtual DOM.
+  3) React applies minimal DOM operations to update the real DOM.
+- Goal: fast and predictable UI updates.
+
+4. React Fiber (introduced in React 16+)
+- Fiber is the reimplementation of React’s reconciliation algorithm.
+- Motivation: Old algorithm was synchronous → large updates blocked the UI.
+- Fiber allows updates to be split into units of work and spread over multiple frames.
+- Enables features like:
+  - Time-slicing (interruptible rendering).
+  - Prioritization (urgent updates like user input are processed first).
+  - Suspense and concurrent rendering.
+
+5. How Fiber works
+- Each element in the UI has a Fiber node (like a linked list tree).
+- Fiber nodes hold info: component type, props, state, effects, child, sibling, return.
+- React works in two phases:
+  a) Render Phase (Reconciliation):
+     - Creates/updates Fiber nodes.
+     - Diffing happens here.
+     - Work can be paused, aborted, or resumed.
+  b) Commit Phase:
+     - Updates are flushed to the real DOM.
+     - This phase is synchronous (cannot be interrupted).
+
+6. Summary
+- Virtual DOM: JS object copy of UI for efficient updates.
+- Diffing: Algorithm to detect changes between old and new VDOM.
+- Reconciliation: Applying minimal changes to the real DOM.
+- Fiber: New architecture that makes reconciliation async, prioritized, and more efficient.
