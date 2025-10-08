@@ -1,0 +1,137 @@
+⚛️ React Props — Rules and Best Practices
+----------------------------------------
+
+📘 What Are Props?
+Props (short for "properties") are a way to pass data from parent to child components in React.
+They make components reusable and configurable.
+
+Example:
+----------------
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function App() {
+  return <Welcome name="Aditya" />;
+}
+
+
+📜 Rules of Props
+-----------------
+
+🧩 1. Props are Read-Only
+-------------------------
+- Props cannot be modified inside the child component.
+- They are immutable.
+
+❌ Wrong:
+props.name = "Ashlesha"; // Error
+
+✅ Correct:
+function Welcome({ name }) {
+  return <h1>Hello, {name}</h1>;
+}
+
+If you need to modify data, use state instead.
+
+
+🔁 2. Data Flow is Unidirectional
+---------------------------------
+- Props flow from parent → child only.
+- Child components cannot send data back through props directly.
+
+✅ You can pass a function as a prop for communication back:
+function Parent() {
+  const handleClick = () => alert("Clicked!");
+  return <Child onClick={handleClick} />;
+}
+
+
+📦 3. Props Can Be Any Type
+---------------------------
+You can pass:
+- Strings
+- Numbers
+- Booleans
+- Arrays
+- Objects
+- Functions
+- Even JSX elements
+
+Example:
+<UserCard 
+  name="Aditya"
+  age={28}
+  skills={["Java", "React"]}
+  details={{ city: "Pune" }}
+  onClick={() => alert("Hello")}
+/>
+
+
+🧱 4. Use Destructuring for Cleaner Code
+---------------------------------------
+Instead of writing props.name, props.age, etc.:
+
+function UserCard({ name, age }) {
+  return <p>{name} - {age}</p>;
+}
+
+
+🧠 5. Use PropTypes (Optional but Recommended)
+----------------------------------------------
+Helps validate the type of props and prevents runtime bugs.
+
+Example:
+import PropTypes from "prop-types";
+
+function UserCard({ name, age }) {
+  return <p>{name} - {age}</p>;
+}
+
+UserCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number
+};
+
+
+🧩 6. Default Props
+-------------------
+Define default values for props not passed by parent.
+
+UserCard.defaultProps = {
+  name: "Guest",
+  age: 0
+};
+
+
+🧠 7. Props Can Be Spread (Use Carefully)
+----------------------------------------
+To pass multiple props quickly:
+
+const user = { name: "Aditya", age: 28 };
+<UserCard {...user} />
+
+⚠️ Don’t overuse — it can make debugging harder.
+
+
+🧮 8. Props vs State
+--------------------
+
+| Feature     | Props         | State            |
+|--------------|----------------|------------------|
+| Mutability   | Immutable      | Mutable          |
+| Ownership    | Parent         | Same component   |
+| Purpose      | Pass data down | Manage local data|
+| Direction    | Parent → Child | Internal         |
+
+
+✅ Summary:
+------------
+1. Props are read-only.
+2. Flow from parent → child.
+3. Can pass any data type.
+4. Use destructuring for clean code.
+5. Use PropTypes for validation.
+6. Use defaultProps for defaults.
+7. Use spread props carefully.
+8. Props ≠ State.

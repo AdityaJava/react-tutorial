@@ -1,6 +1,6 @@
 
-function UserCard(aditya){
-  console.log('props',aditya)
+function UserCard(props){
+  console.log('props',props)
   return(
     <div className="max-w-xs mx-auto">
     <div className="bg-white rounded-xl shadow-md overflow-hidden ring-1 ring-slate-200">
