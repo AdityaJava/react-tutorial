@@ -1,6 +1,6 @@
 
 function UserCard(props){
-  console.log('props',props)
+  console.log('props',props.obj)
   return(
     <div className="max-w-xs mx-auto">
     <div className="bg-white rounded-xl shadow-md overflow-hidden ring-1 ring-slate-200">
@@ -13,8 +13,8 @@ function UserCard(props){
           loading="lazy"
         />
         <div>
-          <h2 className="text-sm font-semibold text-slate-900">Rahul Verma</h2>
-          <p className="text-xs text-slate-500">Frontend Developer</p>
+          <h2 className="text-sm font-semibold text-slate-900">{props.obj.name}</h2>
+          <p className="text-xs text-slate-500">{props.obj.role}</p>
         </div>
       </div>
     </div>
