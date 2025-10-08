@@ -22,7 +22,6 @@ function UserCard({name = 'RadhaRani', role = 'FullStack Java', text = 'Visit me
       </div>
     </div>
   </div>
-
   )
 }
 
