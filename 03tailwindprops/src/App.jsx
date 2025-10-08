@@ -8,7 +8,7 @@ function App() {
   const [ count, setCount ] = useState( 0 )
   
   const backendDev = {name: 'krishna', role:'FullStack Java Spring boot'}
-  const frontendDev = {name: 'RadhaRani', role:'FullStack Java'}
+  const frontendDev = {name: 'RadhaRani', role:'FullStack Java', text: "Click me"}
 
   return (
     <div>
