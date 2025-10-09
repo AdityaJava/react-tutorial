@@ -1,4 +1,4 @@
-import { use, useCallback, useEffect, useState } from 'react'
+import { use, useCallback, useEffect, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -43,6 +43,15 @@ const passwordGenerator = useCallback(() => {
 - With useCallback, the same function object is reused unless dependencies change.
 */
 
+  // This is used to give some effects 
+  const passwordRef = useRef( password );
+
+  const copyPasswordOnClipBoard = useCallback( () => {
+    passwordRef.current?.select()
+    window.navigator.clipboard.writeText( password )
+  }, [ password ] )
+
+
   const passwordGenerator = useCallback( () => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -65,6 +74,7 @@ const passwordGenerator = useCallback(() => {
     passwordGenerator()
   }, [ length, numberAllowed, specialCharacterAllowed ] )
 
+
   return (
     <>
       <div className='w-full max-w-md mx-auto rounded-lg px-4 my-8 text-orange-500 bg-gray-800'>
@@ -76,9 +86,10 @@ const passwordGenerator = useCallback(() => {
             className='text-black outline-none w-full py-1 px-3 bg-white rounded-2xl mb-4 placeholder-gray-400'
             placeholder='Password'
             readOnly
+            ref={ passwordRef }
           >
           </input>
-          <button className='bg-blue-600 text-white px-4 h-full hover:bg-blue-700 '>Copy</button>
+          <button className='bg-indigo-600 hover:not-focus:bg-indigo-700 text-white' onClick={ copyPasswordOnClipBoard }>Copy</button>
         </div>
         <div className='flex text-sm gap-x-2'>
           <div className='flex items-center gap-x-1'>
