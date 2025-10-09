@@ -9,6 +9,40 @@ function App() {
   const [ specialCharacterAllowed, setSpecialCharacterAllowed ] = useState( false );
   const [ password, setPassword ] = useState( "" );
 
+  /*
+===============================
+🧠 React useCallback Hook
+===============================
+
+✅ useCallback() memoizes a function.
+It returns the SAME function instance between renders 
+until its dependencies change.
+
+Syntax:
+--------------------------------
+const memoizedFn = useCallback(
+  () => {
+    // function logic
+  },
+  [dependencies]  // run only if these change
+);
+
+Why use it:
+1️⃣ Prevents unnecessary re-creation of functions on every render.
+2️⃣ Useful when passing functions to child components using React.memo.
+3️⃣ Helps optimize performance in components with frequent re-renders.
+
+Example:
+--------------------------------
+const passwordGenerator = useCallback(() => {
+  // generate password logic
+}, [length, numberAllowed, specialCharacterAllowed]);
+
+💡 Key Point:
+- Without useCallback, a new function is created every render.
+- With useCallback, the same function object is reused unless dependencies change.
+*/
+
   const passwordGenerator = useCallback( () => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -24,12 +58,12 @@ function App() {
       pass += str.charAt( charIndex );
     }
     setPassword( pass );
-  }, [ length, numberAllowed, specialCharacterAllowed, setPassword ] )
+  }, [ length, numberAllowed, specialCharacterAllowed ] )
 
   // the () =>{} is known as callback
   useEffect( () => {
     passwordGenerator()
-  }, [ length, numberAllowed, specialCharacterAllowed, passwordGenerator ] )
+  }, [ length, numberAllowed, specialCharacterAllowed ] )
 
   return (
     <>
