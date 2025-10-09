@@ -1,4 +1,4 @@
-import { use, useCallback, useState } from 'react'
+import { use, useCallback, useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -12,6 +12,7 @@ function App() {
   const passwordGenerator = useCallback( () => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    console.log( "called" )
     if ( numberAllowed ) {
       str += "0123456789";
     }
@@ -24,6 +25,11 @@ function App() {
     }
     setPassword( pass );
   }, [ length, numberAllowed, specialCharacterAllowed, setPassword ] )
+
+  // the () =>{} is known as callback
+  useEffect( () => {
+    passwordGenerator()
+  }, [ length, numberAllowed, specialCharacterAllowed, passwordGenerator ] )
 
   return (
     <>
