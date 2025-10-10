@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 function useCurrencyInfo( currency ) {
+  console.log( currency )
   const [ data, setData ] = useState( {} );
   useEffect( () => {
     fetch( `http://www.floatrates.com/daily/${ currency }.json` )
