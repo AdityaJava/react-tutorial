@@ -11,6 +11,7 @@ function InputBox( {
   currencyDisable = false,
   className = "",
 } ) {
+  console.log( selectCurrency )
   // This is for optimization
   const amountInputId = useId();
   return (

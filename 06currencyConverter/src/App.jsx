@@ -13,7 +13,13 @@ function App() {
   const [ to, setTo ] = useState( "inr" );
   const [ convertedAmount, setConvertedAmount ] = useState( 0 );
   const currencyInfo = useCurrencyInfo( from );
-  const options = Object.keys( currencyInfo );
+  let options = Object.keys( currencyInfo );
+
+  if ( options.length === 0 ) return (
+    <div>Loading...</div>
+  ); // don’t render InputBox until data is ready
+  options = Array.from( new Set( [ from, ...Object.keys( currencyInfo ) ] ) );
+
 
   const swap = () => {
     setFrom( to );
@@ -63,7 +69,7 @@ function App() {
             <div className="w-full mt-1 mb-4">
               <InputBox
                 label="To"
-                amountDisable='true'
+                amountDisable={ true }
                 amount={ convertedAmount }
                 currencyOptions={ options }
                 onCurrencyChange={ ( currency ) => setTo( currency ) }
