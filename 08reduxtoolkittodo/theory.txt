@@ -3,3 +3,4 @@ npm install @reduxjs/toolkit -> This is toolkit
 
 npm install react-redux -> This is needed for react
 
+2. Dispatch uses reducer to update value inside store
