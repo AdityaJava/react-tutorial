@@ -1,0 +1,5 @@
+1. we need 2 libs
+npm install @reduxjs/toolkit -> This is toolkit
+
+npm install react-redux -> This is needed for react
+
