@@ -29,3 +29,5 @@ function AddTodo() {
     </form>
   );
 }
+
+export default AddTodo;

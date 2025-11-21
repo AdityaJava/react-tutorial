@@ -10,9 +10,11 @@ function Todos() {
       {todos.map((todo) => {
         <li key={todo.id}>
           {todo.text}
-          <button onClick={dispatch(removeTodo(todo.id))}></button>
+          <button onClick={() => dispatch(removeTodo(todo.id))}></button>
         </li>;
       })}
     </div>
   );
 }
+
+export default Todos;
