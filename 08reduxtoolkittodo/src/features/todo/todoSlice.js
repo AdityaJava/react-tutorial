@@ -21,7 +21,6 @@ export const todoSlice = createSlice({
       state.todos.push(todo);
     },
     removeTodo: (state, action) => {
-      debugger
       state.todos = state.todos.filter((todo) => {
         return todo.id !== action.payload;
       });
