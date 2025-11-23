@@ -9,16 +9,21 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      <div className="text-3xl font-bold underline text-red-600 flex justify-center ">
-        <div>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-3xl">
+        <h1 className="text-4xl font-extrabold text-center text-red-600 mb-8">
+          Todo Application
+        </h1>
+
+        <div className="space-y-6">
           <AddTodo />
-        </div>
-        <div>
-          <Todos />
+
+          <div className="border-t pt-6">
+            <Todos />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
