@@ -20,14 +20,14 @@ function App() {
           dispatch(logout())
         }
       })
-      .finally()
+      .finally(() => setLoading(false))
   }, [])
 
-  return (
-    <div>
-      <h1>Welcome to 12MegaBlog</h1>
+  return !loading ? (
+    <div className="min-h-sc text-red-500">
+      Hey
     </div>
-  );
+  ) : null
 }
 
 export default App;
